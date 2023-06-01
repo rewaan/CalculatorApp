@@ -1,11 +1,14 @@
+import 'package:calculator_app/calc_types.dart';
 import 'package:flutter/material.dart';
 
 class CalcButton extends StatelessWidget {
   Function onClickedFunction;
   String function;
-  String buttonText;
+  var buttonText;
+  CalcTypes buttonType;
 
-  CalcButton(this.onClickedFunction, this.function, this.buttonText,
+  CalcButton(
+      this.onClickedFunction, this.function, this.buttonText, this.buttonType,
       {super.key});
 
   @override
@@ -16,13 +19,15 @@ class CalcButton extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.13),
       child: ElevatedButton(
         onPressed: () {
-          onClickedFunction(function);
+          onClickedFunction(function, buttonText, buttonType);
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
         ),
-        child: Text(function,
-        style: const TextStyle(color: Colors.black),),
+        child: Text(
+          function,
+          style: const TextStyle(color: Colors.black),
+        ),
       ),
     );
   }

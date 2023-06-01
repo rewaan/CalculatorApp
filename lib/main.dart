@@ -24,9 +24,12 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('CalculatorApp'),
-        centerTitle: true,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(25.0),
+        child: AppBar(
+          title: const Text('CalculatorApp'),
+          centerTitle: true,
+        ),
       ),
       body: const Calculator(),
       backgroundColor: Colors.white60,
